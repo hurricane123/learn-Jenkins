@@ -4,7 +4,7 @@
 	<groupId>com.hurricane.learn</groupId>
 	<artifactId>learn-jenkins</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>jar</packaging>
+	<packaging>war</packaging>
 
 	<name>springboot</name>
 	<url>http://maven.apache.org</url>
@@ -46,6 +46,28 @@
 					<target>1.8</target>
 					<encoding>UTF-8</encoding>
 				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-war-plugin</artifactId>
+				<version>3.0.0</version>
+				<configuration>
+					<failOnMissingWebXml>false</failOnMissingWebXml>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+				<configuration>
+					<mainClass>com.hurricane.learn.jenkins.App</mainClass>
+				</configuration>
+				<executions>
+					<execution>
+						<goals>
+							<goal>repackage</goal>
+						</goals>
+					</execution>
+				</executions>
 			</plugin>
 		</plugins>
 	</build>
